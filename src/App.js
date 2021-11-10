@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import CharacterList from './components/CharacterList'
 
-function App() {
+const App = () => {
+
+  const [characters, setCharacters] = useState([])
+
+  // DECLARING THE URL TO OBTAIN DATA
+  let url_page = 'https://rickandmortyapi.com/api/character';
+
+  // OBTAINING DATA FROM API
+  const fetch_characters = (url) => {
+    fetch(url)
+      .then(response => response.json())
+      .then(data => setCharacters(data.results))
+      .catch(error => console.log(error))
+  };
+  
+  useEffect(() => {
+    fetch_characters(url_page);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 className='h1 text-center'>
+        Rick n Morty WEB APP
+      </h1>
+      <CharacterList characters={characters}/>
+    </>
   );
 }
 
