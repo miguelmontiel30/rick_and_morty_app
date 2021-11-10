@@ -23,6 +23,7 @@ const App = () => {
 
   useEffect(() => {
     fetch_characters(url_page);
+    console.log(paginationInfo);
   }, [url_page]);
 
   return (

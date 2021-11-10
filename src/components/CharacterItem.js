@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import CharacterModal from './CharacterModal';
 import CharacterStatsBadge from './CharacterStatsBadge'
 
-const showDetails = (character_id) => {
-    console.log(character_id);
-}
+
+// const showDetails = (character_id) => {
+//     console.log(character_id);
+// }
 
 const CharacterItem = ({ character, setMostrarModal }) => {
 
@@ -39,28 +40,15 @@ const CharacterItem = ({ character, setMostrarModal }) => {
                         <CharacterStatsBadge character_status={character.status} />
                     </p>
 
-                    <button type="button" onClick={() => setMostrarModal(true)} className="btn m-0 mt-3 btn-sm btn-outline-info" data-toggle="modal" data-target="#basicExampleModal">
-                        Ver detalles
+                    <button type="button" onClick={handleShow} className="btn m-0 mt-3 btn-sm btn-outline-info" data-toggle="modal" data-target="#basicExampleModal">
+                        More Details
                     </button>
 
                 </div>
 
             </div>
 
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button>
-                </Modal.Footer>
-            </Modal>
+            <CharacterModal  character={character} handleClose={handleClose}  show={show} />
 
 
 

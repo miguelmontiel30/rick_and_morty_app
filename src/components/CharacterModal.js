@@ -1,23 +1,63 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import { Modal } from 'react-bootstrap';
+import CharacterStatsBadge from './CharacterStatsBadge';
 
-function CharacterModal({ character }) {
-
-    const [character_data, setCharacter_data] = useState([])    
-
-    useEffect(() => {
-
-        // console.log(character);
-        console.log('Cargo por 1 vez');
-        setCharacter_data(character);
-        console.log(character_data);
-        return (() => {
-            setCharacter_data([]);
-            console.log('Se desmonto el componente');
-        })
-    }, [character_data])
+function CharacterModal({ character, handleClose, show }) {
 
     return (
-        
+        <>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header >
+                    <Modal.Title>{character.name}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div style={{ display: 'flex' }}>
+                        <img style={{ maxWidth: '200px', margin: '0 auto' }} className="card-img-top" src={character.image} alt="character" />
+                    </div>
+                    <ul className="list-group list-group-flush mt-3">
+                        <li className="list-group-item">
+                            <span className='font-weight-bold  mr-2'>
+                                Name:
+                            </span>
+                            {character.name}
+                        </li>
+                        <li className="list-group-item">
+                            <span className='font-weight-bold mr-2'>
+                                Specie:
+                            </span>
+                            {character.species}
+                        </li>
+                        <li className="list-group-item">
+                            <span className='font-weight-bold mr-2'>
+                                Gender:
+                            </span>
+                            {character.gender}
+                        </li>
+                        <li className="list-group-item">
+                            <span className='font-weight-bold mr-2'>
+                                Status:
+                            </span>
+                            <CharacterStatsBadge character_status={character.status} />
+                        </li>
+                        <li className="list-group-item">
+                            <span className='font-weight-bold mr-2'>
+                                Origin:
+                            </span>
+                            {character.origin.name}
+                        </li>
+                        
+                    </ul>
+                </Modal.Body>
+                <Modal.Footer>
+                    <button type="button" onClick={handleClose} className="btn m-0 mt-3 btn-sm btn-outline-primary" >
+                        OK!
+                    </button>
+                </Modal.Footer>
+            </Modal>
+
+        </>
+
         // <div className="modal fade" id="basicExampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         //     aria-hidden="true">
         //     <div className="modal-dialog" role="document">

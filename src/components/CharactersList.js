@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import CharacterItem from './CharacterItem';
 // import CharacterModal from './CharacterModal';
 
 const CharacterList = ({ characters }) => {
-
-    
 
     return (
         <>
