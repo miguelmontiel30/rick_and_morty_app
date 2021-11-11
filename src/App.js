@@ -31,12 +31,11 @@ const App = () => {
 
   return (
     <>
-      <div className='container-fluid py-4'>
+      <div className='container-fluid pb-4 px-0'>
 
         <Header />
 
-
-        <div className='bg-white rounded' style={{ margin: '10px 0px', padding: 10 }}>
+        <div className='bg-white rounded' style={{ margin: '10px 30px', padding: 10 }}>
           <h2 className="h2 text-center mt-2">Characters List</h2>
           <SearchBox setUrl_page={setUrl_page} />
           <Pagination paginationInfo={paginationInfo} setUrl_page={setUrl_page} />

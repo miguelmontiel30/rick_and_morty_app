@@ -1,10 +1,19 @@
 import React from 'react'
+import './../resources/styles/header.css'
 
 const Header = () => {
     return (
-        <h1 className='h1 text-center text-primary my-2'>
-            Rick and Morty WEB APP
-        </h1>
+        <>        
+            <div className='parallax'>
+                <h1
+                style={{padding: '10px', backgroundColor: 'black'}} 
+                className='h1 text-center text-white my-2'>
+                    Rick and Morty Web App
+                </h1>
+            </div>
+
+
+        </>
     )
 }
 

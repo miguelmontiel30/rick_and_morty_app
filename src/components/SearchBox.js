@@ -13,12 +13,12 @@ const SearchBox = ({ setUrl_page }) => {
         setUrl_page('https://rickandmortyapi.com/api/character/?&name=' + search_input);
     }
     return (
-        <div className='mt-3'>
+        <div className='mt-3' style={{display: 'flex', justifyContent: 'center'}}>
             <input
                 type="text"
                 id="search"
                 value={search_text}
-                className="form-control mb-4"
+                className="form-control mb-4 col-6"
                 placeholder="Search a Character"
                 onChange={(e) => handleSearch(e.target.value)}
             ></input>
