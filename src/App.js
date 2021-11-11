@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import CharacterList from './components/CharactersList'
 import Header from './components/Header';
 import Pagination from './components/Pagination';
+import SearchBox from './components/SearchBox';
 
 const App = () => {
 
   const [characters, setCharacters] = useState([]);
   const [paginationInfo, setPaginationInfo] = useState([])
-  
+
   // DECLARING THE URL TO OBTAIN DATA
   const [url_page, setUrl_page] = useState('https://rickandmortyapi.com/api/character')
   // let url_page = 'https://rickandmortyapi.com/api/character';
@@ -31,11 +32,13 @@ const App = () => {
   return (
     <>
       <div className='container-fluid py-4'>
-        
+
         <Header />
 
-        <div className='bg-white rounded' style={{ margin: '10px 0px', padding: 10}}>          
+
+        <div className='bg-white rounded' style={{ margin: '10px 0px', padding: 10 }}>
           <h2 className="h2 text-center mt-2">Characters List</h2>
+          <SearchBox setUrl_page={setUrl_page} />
           <Pagination paginationInfo={paginationInfo} setUrl_page={setUrl_page} />
           <CharacterList characters={characters} />
         </div>

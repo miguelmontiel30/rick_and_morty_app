@@ -25,7 +25,7 @@ const enableNext = (next_exists) => {
 //     return pageNumbers;
 // }
 
-const Pagination = ({ paginationInfo, setUrl_page }) => {
+const Pagination = ({ paginationInfo = {} , setUrl_page = {}}) => {
 
     // let enable_prev = 'disabled';
 
@@ -49,7 +49,7 @@ const Pagination = ({ paginationInfo, setUrl_page }) => {
     useEffect(() => {
         // actual_page = paginationInfo.next;
         // actual_page = actual_page.slice(-1);
-        console.log(paginationInfo.next);
+        // console.log(paginationInfo.next);
         // console.log(pageNumbers);
 
     }, [paginationInfo])
